@@ -1,0 +1,19 @@
+<%= form_for(@article) do |f| %>
+ <div class="form">
+ <h2>新規投稿</h2>
+   <div class="title-edit" >
+   <%= f.text_field :title, placeholder: 'タイトル', class:"form-title"%>
+   </div>
+   <div class="image-edit">
+   <%= f.text_field :image, placeholder: 'アイキャッチ画像', class:"form-image"%>
+   </div>
+   <div class="text-edit">
+   <%= f.text_area :text, placeholder: '本文', class:"form-text"%>
+   </div>
+   <div class="btn-center">
+   <%= button_tag type: "submit", class:"btn" do %>
+    投稿する
+   <% end %>
+   </div>
+  </div>
+<%end%>

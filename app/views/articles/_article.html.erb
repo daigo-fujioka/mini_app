@@ -1,0 +1,7 @@
+<p class="title"><%= article.title %></p>
+  <div class="image-nickname">
+  <img src="<%= article.image %>">
+  <div class="link-to-article">
+  <%= link_to "#{article.user.nickname}さんの記事を読む", "/articles/#{article.id}, method: :get" %>
+  </div>
+  </div>

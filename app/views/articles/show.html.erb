@@ -1,0 +1,24 @@
+<div class="ad">
+<img src="http://xn--l8jcdp0jnf7f11b.up.n.seesaa.net/xn--l8jcdp0jnf7f11b/image/E382B9E382AFE383AAE383BCE383B3E382B7E383A7E38383E38388202014-11-21201.03.15-thumbnail2.png?d=a0">
+ <img src="https://liskul.com/wp-content/uploads/2014/08/20140814_01.jpg">
+ </div>
+<div class="article-page">
+<div class="article-main">
+ <h1><%= @article.title%></h1>
+ <p class="show-nickname"><%= @article.user.nickname %></p>
+ <img class="show-image" src="<%= @article.image%>">
+ <p class="text"><%= @article.text %></p>
+ </div>
+ <% if user_signed_in? && current_user.id == @article.user_id %>
+  
+ <div class="edit-delete">
+ <div class="edit">
+ <%= link_to "Edit", "/articles/#{@article.id}/edit", method: :get %>
+ </div>
+<div class="delete">
+ <%= link_to "Delete", "/articles/#{@article.id}", method: :delete %>
+</div>
+</div>
+ <% end %>
+ 
+ </div>

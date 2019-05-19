@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Sample</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
+    <style type="text/css" href="./style.css"></style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+  </head>
+
+  <body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/articles" class="brand-logo right">Bloooog</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+       <% if user_signed_in?%>
+        <li><%= link_to "Sign-out", destroy_user_session_path, method: :delete %></li>
+        <li><a href="/articles/new">投稿する</a></li>
+        <% else %>
+        <li><%= link_to "Sign-in", new_user_session_path %></li>
+        <li><%= link_to "Sign-up", new_user_registration_path %></li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+    <%= yield %>
+  </body>
+</html>
